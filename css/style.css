@@ -1,0 +1,398 @@
+/* copiar el sistema dee variables del proyecto de athan y empezar a hacer lo demas */
+body {
+    font-family: 'MiFuente', sans-serif;
+}
+
+/* Aplicar la primera fuente a los encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'MiFuente', sans-serif;
+}
+
+
+/*==================== VARIABLES CSS ====================*/
+:root {
+    --header-height: 3rem;
+    
+    /* =========COLORS======== */
+    --hue-color: 0;
+
+    --first-color: hsl(var(--hue-color), 81%, 53%);
+    --first-color-second: hsl(var(--hue-color), 1%, 50%);
+    --first-color-alt: hsl(var(--hue-color), 57%, 53%);
+    --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+    --title-color: hsl(var(--hue-color), 8%, 15%); 
+    --text-color: hsl(var(--hue-color), 99%, 5%);
+    --text-color-light: hsl(var(--hue-color), 8%, 65%);
+    --input-color: hsl(var(--hue-color), 70%, 96%);
+    --body-color: hsl(var(--hue-color), 0%, 97%);
+    --container-color: #fff;
+    --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+    --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+
+    /* =======FONT AND TYPOGRAPHY======= */
+
+    --body-font: 'MiFuente', sans-serif;
+
+    /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px */
+
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /* =======FONT WEIGHT======= */
+
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /* =======MARGENES BOTTOM======= */
+    /* .25rem = 4px, .5rem = 8px, .75rem = 12px */
+
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /* ========BOX======= */
+
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border: .1rem solid rgba(0,0,0,.3);
+
+    /* ========Z INDEX======= */
+
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+/* FONT SIZE FOR LARGE DEVICES */
+@media screen and (min-width: 968px){
+    :root {
+        --big-font-size: 3rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/* ======BASE====== */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+::selection{
+    background-color: var(--first-color);
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    margin: 0 0 var(--header-height) 0;
+    /* font-family: var(--body-font); */
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+html::-webkit-scrollbar{
+    width: 9px;
+}
+
+html::-webkit-scrollbar-thumb{
+    background-color: var(--first-color);
+    border-radius: var(--mb-1);
+}
+
+h1,h2,h3,h4 {
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+/* =====PROJECT====== */
+
+.project{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+    margin-top: var(--mb-2);
+    margin-bottom: var(--mb-2);
+}    
+
+.project__container{
+    text-align: center;
+    width: 250px;
+    height: 350px;
+    position: relative;
+}
+
+.project__img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.project__text{
+    background-color:  rgba(32, 42, 66, 0.5);
+    color: var(--container-color);
+    font-size: var(--h1-font-size);
+    font-family: 'MiFuenteSecond', sans-serif;
+
+    display: grid;
+    place-items: center;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    transition: left .4s ease;
+}
+
+.project__container:hover .project__text{
+    left: 100%;
+    overflow: hidden;
+}
+
+/* =====PROJECT END====== */
+
+
+
+/* ======CONTACT====== */
+
+.contact__section{
+    margin-top: var(--mb-0-5);
+}
+
+.contact__form{
+    margin: auto;
+}
+
+.contact__info{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    width: 40%;
+}
+
+.contact__info__img{
+    width: var(--mb-3);
+}
+
+.contact__info__list{
+    justify-content: start;
+    width: auto;
+}
+
+.contact__info__title{
+    font-size: var(--h3-font-size);
+    width: auto;
+    display: flex;
+    align-items: start;
+    text-align: start;
+}
+
+.contact__info__link{
+    font-size: var(--normal-font-size);
+    width: auto;
+}
+
+.contact__info__title::before{
+    content: '';
+    border-bottom: 2px solid #212D45;
+    position: absolute;
+    bottom: 30px;
+    width: 30%;
+    left: 0;
+}
+
+/* ======CONTACT END====== */
+
+
+/* ================== FOOTER =================== */
+.footer {
+    padding-top: 2rem;
+}
+
+.footer__container {
+    row-gap: 3.5rem;
+}
+
+.footer__bg {
+    background-color: var(--first-color-second);
+    padding: 2rem 0 3rem;
+}
+
+.footer__title {
+    font-size: var(--h1-font-size);
+    margin-bottom: var(--mb-0-25);
+}
+
+.footer__subtitle {
+    font-size: var(--small-font-size);
+}
+
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+}
+
+.footer__link:hover {
+    color: var(--first-color-lighter);
+}
+
+.footer__social {
+    font-size: 1.25rem;
+    margin-right: var(--mb-1-5);
+}
+
+.footer__social:hover {
+    color: var(--first-color-lighter);
+}
+
+.footer__copy {
+    font-size: var(--smaller-font-size);
+    text-align: center;
+    color: var(--text-color-light);
+    margin-top: var(--mb-3);
+}
+
+.footer__title,
+.footer__subtitle,
+.footer__link,
+.footer__social {
+    color: #fff;
+}
+
+
+
+/* PEGAR LOS MEDIA */
+/* ================== MEDIA QUERIES =================== */
+/* for small devices */
+@media screen and (max-width: 350px) {
+    
+}
+
+/* For medium devices */
+@media screen and (min-width: 568px) {
+
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        margin: 0;
+    }
+
+    .footer__container {
+        padding: 0 1rem;
+    }
+
+    .footer__container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer__bg {
+        padding: 3rem 0 3.5rem;
+    }
+
+    .footer__links {
+        flex-direction: row;
+        column-gap: 2rem;
+    }
+
+    .footer__socials {
+        justify-self: flex-end;
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) { 
+    /* ======CONTACT====== */
+
+    .contact__section{
+        margin-top: var(--mb-0-5);
+    }
+
+    .contact__form{
+        margin: auto;
+    }
+
+    .contact__info{
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        width: 40%;
+    }
+
+    .contact__info__img{
+        width: var(--mb-3);
+    }
+
+    .contact__info__list{
+        justify-content: start;
+        width: auto;
+    }
+
+    .contact__info__title{
+        font-size: var(--h3-font-size);
+        width: auto;
+        display: flex;
+        align-items: start;
+        text-align: start;
+    }
+
+    .contact__info__link{
+        font-size: var(--normal-font-size);
+        width: auto;
+    }
+
+    .contact__info__title::before{
+        content: '';
+        border-bottom: 2px solid #212D45;
+        position: absolute;
+        bottom: 30px;
+        width: 30%;
+        left: 0;
+    }
+
+    /* ======CONTACT END====== */
+
+
+    .footer__container{
+        padding: 0;
+    }
+}
